@@ -4,7 +4,6 @@ server:
 spring:
   application:
     name: happyghumakkads-travel-agency
-  #url: jdbc:mysql://mysql-db/happyghumakkads_travel?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=UTC
   datasource:
     url: jdbc:mysql://localhost:3306/happyghumakkads_travel?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=UTC
     username: root
@@ -37,9 +36,6 @@ spring:
           auth: true
           starttls:
             enable: true
-
-  profiles:
-    active: ${ENV:dev}
 
 # Razorpay Configuration
 razorpay:

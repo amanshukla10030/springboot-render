@@ -4,17 +4,16 @@ server:
 spring:
   application:
     name: happyghumakkads-travel-agency
-  #url: jdbc:mysql://mysql-db/happyghumakkads_travel?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=UTC
   datasource:
-    url: jdbc:mysql://localhost:3306/happyghumakkads_travel?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=UTC
+    url: jdbc:mysql://mysql.railway.internal:3306/railway
     username: root
-    password: root
+    password: OEpYKrbFKrIFxmWdzXzePRXqgeiQDoHn
     driver-class-name: com.mysql.cj.jdbc.Driver
   
   jpa:
     hibernate:
       ddl-auto: update
-    show-sql: true
+    show-sql: false
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQLDialect
@@ -37,9 +36,6 @@ spring:
           auth: true
           starttls:
             enable: true
-
-  profiles:
-    active: ${ENV:dev}
 
 # Razorpay Configuration
 razorpay:

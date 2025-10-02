@@ -1,13 +1,13 @@
 server:
-  port: 8080
+  port: ${PORT:8080}
 
 spring:
   application:
     name: happyghumakkads-travel-agency
   datasource:
-    url: jdbc:mysql://mysql.railway.internal:3306/railway
-    username: root
-    password: OEpYKrbFKrIFxmWdzXzePRXqgeiQDoHn
+    url: ${MYSQL_URL:mysql://root:OEpYKrbFKrIFxmWdzXzePRXqgeiQDoHn@mysql.railway.internal:3306/railway}
+    username: ${MYSQLUSER:root}
+    password: ${MYSQLPASSWORD:OEpYKrbFKrIFxmWdzXzePRXqgeiQDoHn}
     driver-class-name: com.mysql.cj.jdbc.Driver
   
   jpa:
@@ -43,17 +43,25 @@ razorpay:
   key-secret: 89tAXP9XWRilvNoervwUHdkw
 
 
-# Logging
+# Logging - Production optimized
 logging:
   level:
-    com.happyghumakkads: DEBUG
-    org.springframework.web: DEBUG
-    org.hibernate.SQL: DEBUG
+    com.happyghumakkads: WARN
+    org.springframework.web: WARN
+    org.hibernate.SQL: WARN
+    root: INFO
 
 # File Upload
 spring.servlet.multipart:
   max-file-size: 10MB
   max-request-size: 10MB
+
+# Database connection pool - Production optimized
+spring.datasource.hikari:
+  maximum-pool-size: 10
+  minimum-idle: 5
+  idle-timeout: 300000
+  max-lifetime: 600000
 
 # Brand metadata used in header/footer
 brand:

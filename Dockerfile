@@ -4,6 +4,7 @@ WORKDIR /app
 
 COPY target/travel-agency-app.jar app.jar
 
+# Railway provides PORT environment variable
 EXPOSE 8080
 
-CMD ["java", "-jar", "app.jar"]
+CMD ["sh", "-c", "java -jar app.jar --server.port=${PORT:-8080}"]

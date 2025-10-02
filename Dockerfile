@@ -1,22 +1,23 @@
 # Multi-stage build for Spring Boot application
 FROM eclipse-temurin:17-jdk-alpine as builder
 
+# Install Maven
+RUN apk add --no-cache maven
+
 # Set working directory
 WORKDIR /app
 
 # Copy Maven files for better layer caching
 COPY pom.xml ./
-COPY .mvn/ .mvn/
-COPY mvnw ./
 
 # Download dependencies (for better layer caching)
-RUN ./mvnw dependency:go-offline -B
+RUN mvn dependency:go-offline -B
 
 # Copy source code
 COPY src ./src
 
 # Build the application
-RUN ./mvnw clean package -DskipTests
+RUN mvn clean package -DskipTests
 
 # Production stage
 FROM eclipse-temurin:17-jre-alpine

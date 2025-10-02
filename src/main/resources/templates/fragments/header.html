@@ -105,40 +105,85 @@
                 color: #333 !important;
                 text-align: center;
                 margin: 0.25rem 0;
+                padding: 0.75rem 1rem !important;
             }
             .navbar-collapse .nav-link:hover {
                 background: #667eea;
                 color: white !important;
             }
+            .navbar-brand span {
+                font-size: 1.2rem !important;
+            }
+            .navbar-brand img {
+                max-height: 35px !important;
+            }
+        }
+
+        /* Extra small screens (mobile phones) */
+        @media (max-width: 576px) {
+            .navbar-brand span {
+                font-size: 1rem !important;
+                font-weight: 700 !important;
+            }
+            .navbar-brand img {
+                max-height: 30px !important;
+            }
+            .navbar-collapse {
+                margin-top: 0.5rem;
+                padding: 0.75rem;
+            }
+            .nav-link {
+                font-size: 0.9rem !important;
+                padding: 0.5rem 0.75rem !important;
+            }
+            .contact-btn {
+                padding: 0.4rem 1rem !important;
+                font-size: 0.9rem !important;
+            }
+            .dropdown-menu {
+                border-radius: 10px !important;
+                box-shadow: 0 5px 20px rgba(0,0,0,0.15) !important;
+            }
+        }
+
+        /* Fix for navbar on mobile */
+        .navbar-toggler {
+            border: 2px solid rgba(26, 115, 232, 0.3) !important;
+            border-radius: 8px !important;
+            padding: 0.5rem !important;
+        }
+
+        .navbar-toggler:focus {
+            box-shadow: 0 0 0 0.2rem rgba(26, 115, 232, 0.25) !important;
         }
     </style>
     
     <nav class="navbar navbar-expand-lg dynamic-navbar sticky-top" id="mainNavbar">
         <div class="container">
-            <a class="navbar-brand logo-container" href="/" aria-label="HappyGhumakkads">
-                <img src="/images/cropped-Logo-png.png" alt="HappyGhumakkads" height="45" class="me-2" onerror="this.style.display='none'">
-                <span>HappyGhumakkads</span>
+            <a class="navbar-brand logo-container d-flex align-items-center" href="/" aria-label="HappyGhumakkads">
+                <img src="/images/cropped-Logo-png.png" alt="HappyGhumakkads" height="45" class="me-2 d-inline-block" onerror="this.style.display='none'">
+                <span class="d-inline-block">HappyGhumakkads</span>
             </a>
-            
+
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample" aria-controls="navbarsExample" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            
-            <div class="collapse navbar-collapse" id="navbarsExample">
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
+
+            <div class="collapse navbar-collapse justify-content-end" id="navbarsExample">
+                <ul class="navbar-nav mb-2 mb-lg-0 align-items-center">
                     <li class="nav-item">
                         <a class="nav-link" href="/" data-page="home">
-                            <i class="fa fa-home me-1"></i>Home
+                            <i class="fa fa-home me-1"></i><span>Home</span>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/packages" data-page="packages">
-                            <i class="fa fa-suitcase me-1"></i>Packages
+                            <i class="fa fa-suitcase me-1"></i><span>Packages</span>
                         </a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="fa fa-globe me-1"></i>Tours
+                            <i class="fa fa-globe me-1"></i><span>Tours</span>
                         </a>
                         <ul class="dropdown-menu shadow-lg border-0" style="border-radius: 15px;">
                             <li><a class="dropdown-item" href="/international-tour"><i class="fa fa-plane me-2 text-primary"></i>International Tours</a></li>
@@ -149,17 +194,17 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/about" data-page="about">
-                            <i class="fa fa-info-circle me-1"></i>About
+                            <i class="fa fa-info-circle me-1"></i><span>About</span>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/careers" data-page="careers">
-                            <i class="fa fa-briefcase me-1"></i>Careers
+                            <i class="fa fa-briefcase me-1"></i><span>Careers</span>
                         </a>
                     </li>
                     <li class="nav-item ms-2">
                         <a class="nav-link contact-btn" href="/contact" data-page="contact">
-                            <i class="fa fa-phone me-1"></i>Contact Us
+                            <i class="fa fa-phone me-1"></i><span>Contact</span>
                         </a>
                     </li>
                 </ul>

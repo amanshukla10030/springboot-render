@@ -5,7 +5,7 @@ spring:
   application:
     name: happyghumakkads-travel-agency
   datasource:
-    url: ${MYSQL_URL:mysql://root:OEpYKrbFKrIFxmWdzXzePRXqgeiQDoHn@mysql.railway.internal:3306/railway}
+    url: ${MYSQL_URL:jdbc:mysql://root:OEpYKrbFKrIFxmWdzXzePRXqgeiQDoHn@mysql.railway.internal:3306/railway}
     username: ${MYSQLUSER:root}
     password: ${MYSQLPASSWORD:OEpYKrbFKrIFxmWdzXzePRXqgeiQDoHn}
     driver-class-name: com.mysql.cj.jdbc.Driver

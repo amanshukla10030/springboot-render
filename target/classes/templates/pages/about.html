@@ -109,6 +109,15 @@
       margin: 0 auto 1rem;
       color: white;
       font-size: 2rem;
+      overflow: hidden;
+      border: 3px solid white;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+    .team-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
     }
   </style>
 </head>
@@ -280,44 +289,103 @@
       <p class="lead text-muted">Passionate travel experts dedicated to your perfect journey</p>
     </div>
     <div class="row g-4">
+      <!-- Travel Experts with Image Gallery -->
       <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
         <div class="team-member">
           <div class="team-avatar">
-            <i class="fa fa-user"></i>
+            <img src="/images/about.jpg" alt="Travel Experts" onerror="this.outerHTML='<i class=\'fa fa-user\'></i>'">
           </div>
           <h5 class="fw-bold">Travel Experts</h5>
           <p class="text-muted mb-3">Destination Specialists</p>
           <p class="small">Our team of travel experts brings years of experience and local knowledge to craft your perfect journey.</p>
         </div>
       </div>
+
+      <!-- Support Team with Image Gallery -->
       <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
         <div class="team-member">
           <div class="team-avatar">
-            <i class="fa fa-headset"></i>
+            <img src="/images/about1.jpg" alt="Support Team" onerror="this.outerHTML='<i class=\'fa fa-headset\'></i>'">
           </div>
           <h5 class="fw-bold">Support Team</h5>
           <p class="text-muted mb-3">24x7 Customer Care</p>
           <p class="small">Our dedicated support team is available round the clock to assist you before, during, and after your travels.</p>
         </div>
       </div>
+
+      <!-- Local Guides with Image Gallery -->
       <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
         <div class="team-member">
           <div class="team-avatar">
-            <i class="fa fa-map"></i>
+            <img src="/images/about2.jpg" alt="Local Guides" onerror="this.outerHTML='<i class=\'fa fa-map\'></i>'">
           </div>
           <h5 class="fw-bold">Local Guides</h5>
           <p class="text-muted mb-3">Cultural Ambassadors</p>
           <p class="small">Our network of local guides ensures authentic experiences and deep cultural insights at every destination.</p>
         </div>
       </div>
+
+      <!-- Operations with Image Gallery -->
       <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="400">
         <div class="team-member">
           <div class="team-avatar">
-            <i class="fa fa-cog"></i>
+            <img src="/images/about3.jpg" alt="Operations" onerror="this.outerHTML='<i class=\'fa fa-cog\'></i>'">
           </div>
           <h5 class="fw-bold">Operations</h5>
           <p class="text-muted mb-3">Logistics Experts</p>
           <p class="small">Our operations team ensures seamless travel experiences with attention to every detail of your journey.</p>
+        </div>
+      </div>
+
+      <!-- Additional Team Members with Images -->
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="500">
+        <div class="team-member">
+          <div class="team-avatar">
+            <img src="/images/about4.jpg" alt="Team Member" onerror="this.outerHTML='<i class=\'fa fa-users\'></i>'">
+          </div>
+          <h5 class="fw-bold">Tour Planners</h5>
+          <p class="text-muted mb-3">Itinerary Specialists</p>
+          <p class="small">Our creative planners design personalized itineraries that match your interests and preferences perfectly.</p>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="600">
+        <div class="team-member">
+          <div class="team-avatar">
+            <img src="/images/about5.jpg" alt="Team Member" onerror="this.outerHTML='<i class=\'fa fa-camera\'></i>'">
+          </div>
+          <h5 class="fw-bold">Content Creators</h5>
+          <p class="text-muted mb-3">Visual Storytellers</p>
+          <p class="small">Our photographers and writers capture and share the beauty of destinations to inspire your next adventure.</p>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="700">
+        <div class="team-member">
+          <div class="team-avatar">
+            <img src="/images/about6.jpg" alt="Team Member" onerror="this.outerHTML='<i class=\'fa fa-heart\'></i>'">
+          </div>
+          <h5 class="fw-bold">Experience Curators</h5>
+          <p class="text-muted mb-3">Memory Makers</p>
+          <p class="small">We curate unique experiences that create lasting memories and bring joy to every moment of your journey.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Image Gallery Section -->
+    <div class="row mt-5" data-aos="fade-up" data-aos-delay="800">
+      <div class="col-12 text-center mb-4">
+        <h4 class="h5 fw-bold">Our Team in Action</h4>
+        <p class="text-muted">Behind-the-scenes moments that showcase our passion for travel</p>
+      </div>
+      <div class="col-12">
+        <div class="row g-3 justify-content-center">
+          <div class="col-6 col-md-4 col-lg-3">
+            <img src="/images/about7.jpg" alt="Team Activity" class="img-fluid rounded-3 shadow-sm" style="aspect-ratio: 1; object-fit: cover;">
+          </div>
+          <div class="col-6 col-md-4 col-lg-3">
+            <img src="/images/about8.jpg" alt="Team Activity" class="img-fluid rounded-3 shadow-sm" style="aspect-ratio: 1; object-fit: cover;">
+          </div>
         </div>
       </div>
     </div>

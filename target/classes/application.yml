@@ -26,17 +26,11 @@ spring:
     suffix: .html
     encoding: UTF-8
     
-  mail:
-    host: smtp.gmail.com
-    port: 587
-    username: happyghumakkads@gmail.com
-    password: bvozblhsrgzakwqv
-    properties:
-      mail:
-        smtp:
-          auth: true
-          starttls:
-            enable: true
+  # SendGrid Configuration
+  sendgrid:
+    api-key: ${SENDGRID_API_KEY}
+    from-email: ${SENDGRID_FROM_EMAIL:amanshukla7876@gmail.com}
+    from-name: ${SENDGRID_FROM_NAME:Aman Shukla}
 
   profiles:
     active: ${ENV:prod}
@@ -64,7 +58,7 @@ brand:
   name: HappyGhumakkads
   logo-url: ${BRAND_LOGO_URL:/images/logo.svg}
   phone: "+91 84471 33338"
-  email: happyghumakkads@gmail.com
+  email: amanshukla7876@gmail.com
   address: Mishra Complex, Ground Floor, Chauhan Nagar, Pateri, Satna (M.P.) 485001
   instagram: https://instagram.com/happyghumakkads/
   facebook: https://facebook.com/happyghumakkads/

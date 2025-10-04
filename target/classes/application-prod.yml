@@ -25,17 +25,10 @@ spring:
     suffix: .html
     encoding: UTF-8
     
-  mail:
-    host: smtp.gmail.com
-    port: 587
-    username: happyghumakkads@gmail.com
-    password: bvozblhsrgzakwqv
-    properties:
-      mail:
-        smtp:
-          auth: true
-          starttls:
-            enable: true
+  sendgrid:
+    api-key: ${SENDGRID_API_KEY}
+    from-email: ${SENDGRID_FROM_EMAIL:amanshukla7876@gmail.com}
+    from-name: ${SENDGRID_FROM_NAME:"Aman Shukla"}
 
 # Razorpay Configuration
 razorpay:

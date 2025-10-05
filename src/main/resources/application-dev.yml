@@ -1,0 +1,64 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: happyghumakkads-travel-agency
+  #url: jdbc:mysql://mysql-db/happyghumakkads_travel?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=UTC
+  datasource:
+    url: ${DATABASE_URL:jdbc:mysql://localhost:3306/happyghumakkads_travel?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=UTC}
+    username: ${DATABASE_USERNAME:root}
+    password: ${DATABASE_PASSWORD:root}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+        format_sql: true
+  
+  thymeleaf:
+    cache: false
+    prefix: classpath:/templates/
+    suffix: .html
+    encoding: UTF-8
+    
+  # SendGrid Configuration
+  sendgrid:
+    api-key: ${SENDGRID_API_KEY}
+    from-email: ${SENDGRID_FROM_EMAIL:info.happyghumakkads@gmail.com}
+    from-name: ${SENDGRID_FROM_NAME:Happy Ghumakkads}
+
+  profiles:
+    active: ${ENV:prod}
+
+# Razorpay Configuration
+razorpay:
+  key-id: rzp_live_ROWxwzLW9cavg2
+  key-secret: 89tAXP9XWRilvNoervwUHdkw
+
+
+# Logging
+logging:
+  level:
+    com.happyghumakkads: DEBUG
+    org.springframework.web: DEBUG
+    org.hibernate.SQL: DEBUG
+
+# File Upload
+spring.servlet.multipart:
+  max-file-size: 10MB
+  max-request-size: 10MB
+
+# Brand metadata used in header/footer
+brand:
+  name: HappyGhumakkads
+  logo-url: ${BRAND_LOGO_URL:/images/logo.svg}
+  phone: "+91 84471 33338"
+  email: info.happyghumakkads@gmail.com
+  address: Mishra Complex, Ground Floor, Chauhan Nagar, Pateri, Satna (M.P.) 485001
+  instagram: https://instagram.com/happyghumakkads/
+  facebook: https://facebook.com/happyghumakkads/

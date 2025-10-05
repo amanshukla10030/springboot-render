@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Refund Policy - HappyGhumakkads</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <link href="/css/style.css" rel="stylesheet">
+  <style>
+    .refund-content {
+      line-height: 1.8;
+      color: #4a4a4a;
+    }
+    .refund-content h2 {
+      color: #2c3e50;
+      margin-top: 2rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid #f0f0f0;
+    }
+    .refund-content h3 {
+      color: #34495e;
+      margin-top: 1.5rem;
+    }
+    .last-updated {
+      font-style: italic;
+      color: #7f8c8d;
+      margin-bottom: 2rem;
+    }
+    .highlight-box {
+      background-color: #f8f9fa;
+      border-left: 4px solid #10b981;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      border-radius: 0 4px 4px 0;
+    }
+    .contact-info {
+      background-color: #f0f8ff;
+      padding: 1.5rem;
+      border-radius: 8px;
+      margin: 2rem 0;
+    }
+    .refund-timeline {
+      background-color: #e8f5e8;
+      padding: 1.5rem;
+      border-radius: 8px;
+      margin: 1.5rem 0;
+    }
+    .important-note {
+      background-color: #fff3cd;
+      border: 1px solid #ffeaa7;
+      padding: 1rem;
+      border-radius: 4px;
+      margin: 1rem 0;
+    }
+  </style>
+</head>
+<body class="d-flex flex-column min-vh-100">
+<div th:replace="fragments/header :: siteHeader"></div>
+
+<main class="container my-5 flex-grow-1">
+  <div class="row justify-content-center">
+    <div class="col-lg-10">
+      <div class="refund-content">
+        <h1 class="mb-4">Refund Policy</h1>
+        <p class="last-updated">Last updated on March 19th, 2024</p>
+
+        <div class="highlight-box">
+          <h2 class="h4">Overview</h2>
+          <p>At HappyGhumakkads, we strive to provide exceptional travel experiences. However, we understand that circumstances may arise requiring cancellations or changes. This Refund Policy outlines our procedures for processing refunds for various travel services.</p>
+          <p><strong>Important:</strong> All refunds are processed in accordance with our Terms of Service and are subject to the cancellation policies of our service providers.</p>
+        </div>
+
+        <h2>Refund Processing Time</h2>
+        <div class="refund-timeline">
+          <h3 class="h5"><i class="fas fa-clock me-2"></i>Standard Processing Time</h3>
+          <p><strong>All refunds typically take 7-10 working days</strong> to process from the date of approval. This timeline applies to:</p>
+          <ul>
+            <li>Credit card refunds</li>
+            <li>Debit card refunds</li>
+            <li>Net banking refunds</li>
+            <li>UPI refunds</li>
+            <li>Digital wallet refunds</li>
+          </ul>
+          <p class="mb-0"><em>Note: The actual time for the refund to appear in your account may vary depending on your bank or payment provider's processing policies.</em></p>
+        </div>
+
+        <h2>Cancellation and Refund Policies by Service Type</h2>
+
+        <h3>1. Tour Packages and Group Tours</h3>
+        <div class="important-note">
+          <strong>Cancellation Charges:</strong>
+          <ul class="mb-0">
+            <li>More than 30 days before departure: 25% of total package cost</li>
+            <li>15-30 days before departure: 50% of total package cost</li>
+            <li>7-14 days before departure: 75% of total package cost</li>
+            <li>Less than 7 days before departure: 100% of total package cost (No refund)</li>
+          </ul>
+        </div>
+
+        <h3>2. Hotel Bookings</h3>
+        <p>Hotel cancellation policies vary by property and rate type:</p>
+        <ul>
+          <li><strong>Free Cancellation:</strong> Most bookings can be cancelled 24-48 hours before check-in for full refund</li>
+          <li><strong>Non-Refundable Rates:</strong> Prepaid rates may be non-refundable</li>
+          <li><strong>Peak Season:</strong> Special cancellation policies may apply during peak seasons</li>
+        </ul>
+
+        <h3>3. Flight Bookings</h3>
+        <p>Flight refunds depend on the airline's fare rules:</p>
+        <ul>
+          <li><strong>Refundable Tickets:</strong> Full or partial refund based on airline policy</li>
+          <li><strong>Non-Refundable Tickets:</strong> May be eligible for credit or rescheduling</li>
+          <li><strong>Cancellation Fees:</strong> Airline service fees and taxes may be deducted</li>
+        </ul>
+
+        <h3>4. Transportation Services</h3>
+        <p>Bus/train/car rental cancellation policies:</p>
+        <ul>
+          <li><strong>Advance Bookings:</strong> 24-48 hour cancellation required for full refund</li>
+          <li><strong>Instant Confirmation:</strong> May have different cancellation windows</li>
+          <li><strong>Peak Travel Times:</strong> Stricter cancellation policies may apply</li>
+        </ul>
+
+        <h2>Refund Request Process</h2>
+        <h3>How to Request a Refund</h3>
+        <ol>
+          <li>Contact our customer service team at <a href="mailto:happyghumakkads@gmail.com">happyghumakkads@gmail.com</a> or +91 84471 33338</li>
+          <li>Provide your booking reference number and reason for cancellation</li>
+          <li>Include any supporting documentation if applicable</li>
+          <li>Our team will review your request and confirm eligibility</li>
+          <li>Approved refunds will be processed within 7-10 working days</li>
+        </ol>
+
+        <h3>Required Information</h3>
+        <p>To process your refund request, please provide:</p>
+        <ul>
+          <li>Booking reference number</li>
+          <li>Date of booking</li>
+          <li>Traveler names</li>
+          <li>Reason for cancellation</li>
+          <li>Contact information</li>
+        </ul>
+
+        <h2>Special Circumstances</h2>
+        <h3>Force Majeure Events</h3>
+        <p>In cases of unavoidable circumstances beyond our control:</p>
+        <ul>
+          <li>Natural disasters (earthquakes, floods, hurricanes)</li>
+          <li>Political instability or civil unrest</li>
+          <li>Pandemics or health emergencies</li>
+          <li>Government travel restrictions</li>
+        </ul>
+        <p>We may offer alternative arrangements or expedited refund processing on a case-by-case basis.</p>
+
+        <h3>Medical Emergencies</h3>
+        <p>For cancellations due to medical reasons:</p>
+        <ul>
+          <li>Provide medical certificate or doctor's note</li>
+          <li>Refunds may be processed with reduced cancellation fees</li>
+          <li>Travel insurance claims may be applicable</li>
+        </ul>
+
+        <h2>Payment Method for Refunds</h2>
+        <h3>Original Payment Method</h3>
+        <p>Refunds are typically processed to the original payment method:</p>
+        <ul>
+          <li><strong>Credit/Debit Cards:</strong> Credited back to the same card</li>
+          <li><strong>Net Banking:</strong> Transferred to the same bank account</li>
+          <li><strong>UPI:</strong> Returned to the same UPI ID</li>
+          <li><strong>Digital Wallets:</strong> Credited back to the same wallet</li>
+        </ul>
+
+        <h3>Alternative Refund Methods</h3>
+        <p>In some cases, we may offer:</p>
+        <ul>
+          <li><strong>Travel Credits:</strong> For future bookings with extended validity</li>
+          <li><strong>Bank Transfers:</strong> For cash refunds (may take longer)</li>
+          <li><strong>Gift Vouchers:</strong> For equivalent value with bonus incentives</li>
+        </ul>
+
+        <h2>Non-Refundable Items</h2>
+        <p>The following are generally non-refundable:</p>
+        <ul>
+          <li>Travel insurance premiums (claim through insurance provider)</li>
+          <li>Visa fees and processing charges</li>
+          <li>Service fees and booking charges</li>
+          <li>Third-party supplier fees for non-refundable services</li>
+          <li>Optional add-ons that have been utilized</li>
+        </ul>
+
+        <h2>Disputes and Escalations</h2>
+        <p>If you disagree with a refund decision:</p>
+        <ol>
+          <li>Contact our customer service manager</li>
+          <li>Provide additional supporting documentation</li>
+          <li>Request escalation to senior management if needed</li>
+          <li>We aim to resolve all disputes within 15 working days</li>
+        </ol>
+
+        <div class="contact-info">
+          <h3>Contact Information</h3>
+          <p>For refund requests or questions about this policy, please contact us:</p>
+          <p>
+            <strong>Email:</strong> <a href="mailto:happyghumakkads@gmail.com">happyghumakkads@gmail.com</a><br>
+            <strong>Phone:</strong> +91 84471 33338<br>
+            <strong>Address:</strong> Mishra Complex, Ground Floor, Chauhan Nagar, Pateri, Satna (M.P.) 485001
+          </p>
+          <p><strong>Business Hours:</strong> Monday - Saturday: 9:00 AM - 7:00 PM<br>
+          <strong>Emergency Support:</strong> 24x7 for active bookings</p>
+        </div>
+
+        <h2>Policy Updates</h2>
+        <p>We reserve the right to update this Refund Policy as needed. Significant changes will be communicated to customers. This policy works in conjunction with our Terms of Service.</p>
+
+        <div class="important-note">
+          <strong>Important Disclaimer:</strong> Refund processing times are estimates and may vary based on your payment provider, banking holidays, and international transfer requirements. We process all eligible refunds promptly and will keep you updated on the status.
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<div class="mt-auto" th:replace="fragments/footer :: siteFooter"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

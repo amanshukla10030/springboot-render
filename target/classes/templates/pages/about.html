@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>About Us - HappyGhumakkads </title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+  <link href="/css/style.css" rel="stylesheet"/>
+  <style>
+    /* Mobile responsiveness fixes */
+    html, body {
+      overflow-x: hidden !important;
+      width: 100% !important;
+      max-width: 100% !important;
+    }
+
+    * {
+      box-sizing: border-box !important;
+    }
+
+    img {
+      max-width: 100% !important;
+      height: auto !important;
+    }
+
+    .hero-about {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-about::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=1600&q=80') center/cover;
+      opacity: 0.2;
+      z-index: 1;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+    .floating-icon {
+      animation: float 3s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+    .stat-card {
+      background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      border: none;
+      transition: all 0.3s ease;
+    }
+    .stat-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    }
+    .timeline-item {
+      position: relative;
+      padding-left: 3rem;
+    }
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 3px;
+      height: 100%;
+      background: linear-gradient(to bottom, #667eea, #764ba2);
+    }
+    .timeline-item::after {
+      content: '';
+      position: absolute;
+      left: -6px;
+      top: 1rem;
+      width: 15px;
+      height: 15px;
+      background: #667eea;
+      border-radius: 50%;
+      border: 3px solid white;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .value-card {
+      background: white;
+      border-radius: 15px;
+      padding: 2rem;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+      transition: all 0.3s ease;
+      border-left: 4px solid transparent;
+    }
+    .value-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    }
+    .value-card.safety { border-left-color: #28a745; }
+    .value-card.culture { border-left-color: #17a2b8; }
+    .value-card.innovation { border-left-color: #ffc107; }
+    .value-card.satisfaction { border-left-color: #dc3545; }
+    .team-member {
+      text-align: center;
+      padding: 1.5rem;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+      transition: all 0.3s ease;
+    }
+    .team-member:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    }
+    .team-avatar {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1rem;
+      color: white;
+      font-size: 2rem;
+      overflow: hidden;
+      border: 3px solid white;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+    .team-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+  </style>
+</head>
+<body class="d-flex flex-column min-vh-100">
+<div th:replace="fragments/header :: siteHeader"></div>
+
+<!-- Hero Section -->
+<section class="hero-about py-5 text-white">
+  <div class="container hero-content">
+    <div class="row align-items-center min-vh-50">
+      <div class="col-lg-6" data-aos="fade-right">
+        <h1 class="display-4 fw-bold mb-4">About Happy Ghumakkads</h1>
+        <p class="lead mb-4">Where every adventure is a celebration of wanderlust and happiness! We are your passionate travel companions, dedicated to crafting extraordinary experiences.</p>
+        <div class="d-flex gap-3">
+          <a href="/contact" class="btn btn-light btn-lg"><i class="fa fa-phone me-2"></i>Get in Touch</a>
+          <a href="/packages" class="btn btn-outline-light btn-lg"><i class="fa fa-suitcase me-2"></i>Explore Tours</a>
+        </div>
+      </div>
+      <div class="col-lg-6 text-center" data-aos="fade-left">
+        <div class="floating-icon">
+          <i class="fa fa-globe fa-10x opacity-75"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Stats Section -->
+<section class="py-5 bg-light">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="100">
+        <div class="stat-card text-white text-center p-4 rounded-3">
+          <i class="fa fa-users fa-3x mb-3"></i>
+          <h3 class="h2 fw-bold">10000+</h3>
+          <p class="mb-0">Happy Travelers</p>
+        </div>
+      </div>
+      <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="200">
+        <div class="stat-card text-white text-center p-4 rounded-3">
+          <i class="fa fa-map-marker-alt fa-3x mb-3"></i>
+          <h3 class="h2 fw-bold">25+</h3>
+          <p class="mb-0">Destinations</p>
+        </div>
+      </div>
+      <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="300">
+        <div class="stat-card text-white text-center p-4 rounded-3">
+          <i class="fa fa-calendar fa-3x mb-3"></i>
+          <h3 class="h2 fw-bold">8+</h3>
+          <p class="mb-0">Years Experience</p>
+        </div>
+      </div>
+      <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="400">
+        <div class="stat-card text-white text-center p-4 rounded-3">
+          <i class="fa fa-star fa-3x mb-3"></i>
+          <h3 class="h2 fw-bold">4.9</h3>
+          <p class="mb-0">Rating</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Our Story Section -->
+<section class="py-5">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-6" data-aos="fade-right">
+        <h2 class="h3 mb-4">Our Story</h2>
+        <div class="timeline-item mb-4">
+          <h5 class="fw-bold text-primary">The Beginning</h5>
+          <p>Happy Ghumakkads started as a dream to make travel accessible, enjoyable, and transformative for everyone. Our founders, passionate travelers themselves, recognized the need for personalized, authentic travel experiences.</p>
+        </div>
+        <div class="timeline-item mb-4">
+          <h5 class="fw-bold text-primary">Growing Together</h5>
+          <p>Over the years, we've grown from a small team to a family of travel enthusiasts, each bringing unique expertise and local knowledge to create unforgettable journeys.</p>
+        </div>
+        <div class="timeline-item">
+          <h5 class="fw-bold text-primary">Today & Beyond</h5>
+          <p>Today, we're proud to be your trusted travel partner, continuously innovating and expanding our offerings to serve travelers from all walks of life.</p>
+        </div>
+      </div>
+      <div class="col-lg-6" data-aos="fade-left">
+        <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=800&q=80" alt="Our Journey" class="img-fluid rounded-3 shadow">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Our Values Section -->
+<section class="py-5 bg-light">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <h2 class="h3">Our Core Values</h2>
+      <p class="lead text-muted">The principles that guide everything we do</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+        <div class="value-card safety h-100">
+          <div class="text-center mb-3">
+            <i class="fa fa-shield-halved fa-3x text-success"></i>
+          </div>
+          <h5 class="fw-bold">Safety First</h5>
+          <p class="text-muted mb-0">Your safety and well-being are our top priorities. We maintain the highest safety standards in all our operations.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+        <div class="value-card culture h-100">
+          <div class="text-center mb-3">
+            <i class="fa fa-heart fa-3x text-info"></i>
+          </div>
+          <h5 class="fw-bold">Cultural Immersion</h5>
+          <p class="text-muted mb-0">We believe in authentic experiences that connect you with local cultures and traditions.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+        <div class="value-card innovation h-100">
+          <div class="text-center mb-3">
+            <i class="fa fa-lightbulb fa-3x text-warning"></i>
+          </div>
+          <h5 class="fw-bold">Innovation</h5>
+          <p class="text-muted mb-0">We continuously innovate to create unique and memorable travel experiences for our clients.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="400">
+        <div class="value-card satisfaction h-100">
+          <div class="text-center mb-3">
+            <i class="fa fa-smile fa-3x text-danger"></i>
+          </div>
+          <h5 class="fw-bold">Customer Joy</h5>
+          <p class="text-muted mb-0">Your happiness is our success. We go above and beyond to ensure every moment of your journey is special.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Mission & Vision Section -->
+<section class="py-5">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-6" data-aos="fade-right">
+        <div class="bg-primary text-white p-5 rounded-3 h-100">
+          <div class="text-center mb-4">
+            <i class="fa fa-bullseye fa-4x"></i>
+          </div>
+          <h3 class="h4 mb-4 text-center">Our Mission</h3>
+          <p class="lead text-center">To inspire and enable transformative journeys that bring joy, cultural enrichment, and cherished memories to our travelers through immersive and sustainable travel experiences.</p>
+        </div>
+      </div>
+      <div class="col-lg-6" data-aos="fade-left">
+        <div class="bg-success text-white p-5 rounded-3 h-100">
+          <div class="text-center mb-4">
+            <i class="fa fa-eye fa-4x"></i>
+          </div>
+          <h3 class="h4 mb-4 text-center">Our Vision</h3>
+          <p class="lead text-center">To create a world where travel becomes a transformative force, fostering a global community united by exploration, authenticity, and sustainable tourism.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Team Section -->
+<section class="py-5 bg-light">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <h2 class="h3">Meet Our Team</h2>
+      <p class="lead text-muted">Passionate travel experts dedicated to your perfect journey</p>
+    </div>
+    <div class="row g-4">
+      <!-- Travel Experts with Image Gallery -->
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+        <div class="team-member">
+          <div class="team-avatar">
+            <img src="/images/about.jpg" alt="Travel Experts" onerror="this.outerHTML='<i class=\'fa fa-user\'></i>'">
+          </div>
+          <h5 class="fw-bold">Travel Experts</h5>
+          <p class="text-muted mb-3">Destination Specialists</p>
+          <p class="small">Our team of travel experts brings years of experience and local knowledge to craft your perfect journey.</p>
+        </div>
+      </div>
+
+      <!-- Support Team with Image Gallery -->
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+        <div class="team-member">
+          <div class="team-avatar">
+            <img src="/images/about1.jpg" alt="Support Team" onerror="this.outerHTML='<i class=\'fa fa-headset\'></i>'">
+          </div>
+          <h5 class="fw-bold">Support Team</h5>
+          <p class="text-muted mb-3">24x7 Customer Care</p>
+          <p class="small">Our dedicated support team is available round the clock to assist you before, during, and after your travels.</p>
+        </div>
+      </div>
+
+      <!-- Local Guides with Image Gallery -->
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+        <div class="team-member">
+          <div class="team-avatar">
+            <img src="/images/about2.jpg" alt="Local Guides" onerror="this.outerHTML='<i class=\'fa fa-map\'></i>'">
+          </div>
+          <h5 class="fw-bold">Certificates</h5>
+          <p class="text-muted mb-3">Received Certificate from MP Satna</p>
+          <p class="small">Our network ensures authentic experiences and deep cultural insights at every destination.</p>
+        </div>
+      </div>
+
+      <!-- Operations with Image Gallery -->
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="400">
+        <div class="team-member">
+          <div class="team-avatar">
+            <img src="/images/about3.jpg" alt="Operations" onerror="this.outerHTML='<i class=\'fa fa-cog\'></i>'">
+          </div>
+          <h5 class="fw-bold">Operations</h5>
+          <p class="text-muted mb-3">Logistics Experts</p>
+          <p class="small">Our operations team ensures seamless travel experiences with attention to every detail of your journey.</p>
+        </div>
+      </div>
+
+      <!-- Additional Team Members with Images -->
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="500">
+        <div class="team-member">
+          <div class="team-avatar">
+            <img src="/images/about4.png" alt="Team Member" onerror="this.outerHTML='<i class=\'fa fa-users\'></i>'">
+          </div>
+          <h5 class="fw-bold">Awards</h5>
+          <p class="text-muted mb-3">Travel Itinerary Specialists</p>
+          <p class="small">Our creative planners design personalized itineraries that match your interests and preferences perfectly.</p>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="600">
+        <div class="team-member">
+          <div class="team-avatar">
+            <img src="/images/about5.jpg" alt="Team Member" onerror="this.outerHTML='<i class=\'fa fa-camera\'></i>'">
+          </div>
+          <h5 class="fw-bold">Content Creators</h5>
+          <p class="text-muted mb-3">Visual Storytellers</p>
+          <p class="small">Our photographers and writers capture and share the beauty of destinations to inspire your next adventure.</p>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="700">
+        <div class="team-member">
+          <div class="team-avatar">
+            <img src="/images/about6.jpg" alt="Team Member" onerror="this.outerHTML='<i class=\'fa fa-heart\'></i>'">
+          </div>
+          <h5 class="fw-bold">Experience Curators</h5>
+          <p class="text-muted mb-3">Memory Makers</p>
+          <p class="small">We curate unique experiences that create lasting memories and bring joy to every moment of your journey.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Image Gallery Section -->
+    <div class="row mt-5" data-aos="fade-up" data-aos-delay="800">
+      <div class="col-12 text-center mb-4">
+        <h4 class="h5 fw-bold">Our Team in Action</h4>
+        <p class="text-muted">Behind-the-scenes moments that showcase our passion for travel</p>
+      </div>
+      <div class="col-12">
+        <div class="row g-3 justify-content-center">
+          <div class="col-6 col-md-4 col-lg-3">
+            <img src="/images/about7.jpg" alt="Team Activity" class="img-fluid rounded-3 shadow-sm" style="aspect-ratio: 1; object-fit: cover;">
+          </div>
+          <div class="col-6 col-md-4 col-lg-3">
+            <img src="/images/about8.jpg" alt="Team Activity" class="img-fluid rounded-3 shadow-sm" style="aspect-ratio: 1; object-fit: cover;">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Section -->
+<section class="py-5 bg-primary text-white">
+  <div class="container text-center" data-aos="fade-up">
+    <h2 class="h3 mb-4">Ready to Start Your Adventure?</h2>
+    <p class="lead mb-4">Join thousands of happy travelers who have experienced the joy of exploration with us.</p>
+    <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center">
+      <a href="/packages" class="btn btn-light btn-lg"><i class="fa fa-suitcase me-2"></i>Browse Packages</a>
+      <a href="/contact" class="btn btn-outline-light btn-lg"><i class="fa fa-phone me-2"></i>Contact Us</a>
+    </div>
+  </div>
+</section>
+
+<div class="mt-auto" th:replace="fragments/footer :: siteFooter"></div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 800,
+    easing: 'ease-in-out',
+    once: true
+  });
+</script>
+<script src="/js/chatbot.js"></script>
+</body>
+</html>

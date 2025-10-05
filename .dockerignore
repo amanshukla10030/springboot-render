@@ -1,0 +1,43 @@
+# Compiled files and build artifacts
+target/
+*.class
+*.jar
+
+# IDE files
+.idea/
+.vscode/
+.settings/
+.project
+.classpath
+*.iml
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Git
+.git/
+.gitignore
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+*.tmp
+*.temp
+
+# Documentation
+README.md
+*.md
+
+# Docker files (avoid recursive copies)
+Dockerfile
+docker-compose.yml
+.dockerignore
+
+# Node modules (if any frontend build)
+node_modules/
+
+# Maven local repository (if copied)
+.m2/

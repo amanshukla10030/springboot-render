@@ -1,0 +1,14 @@
+package com.happyghumakkads;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.openfeign.EnableFeignClients;
+//Updated one 15
+@SpringBootApplication
+@EnableFeignClients
+public class TravelAgencyApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(TravelAgencyApplication.class, args);
+    }
+}

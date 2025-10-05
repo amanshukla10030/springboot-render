@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>International Tours - HappyGhumakkads</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+  <link href="/css/style.css" rel="stylesheet"/>
+  <style>
+    .hero-international {
+      background: linear-gradient(135deg, rgba(231, 76, 60, 0.9) 0%, rgba(192, 57, 43, 0.9) 100%);
+      position: relative;
+      min-height: 60vh;
+    }
+    .country-card {
+      background: white;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    .country-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+    }
+    .country-card .card-img-top {
+      height: 250px;
+      object-fit: cover;
+      transition: all 0.3s ease;
+    }
+    .country-card:hover .card-img-top {
+      transform: scale(1.1);
+    }
+    .price-badge {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 25px;
+      font-weight: bold;
+      z-index: 2;
+    }
+    .feature-list {
+      list-style: none;
+      padding: 0;
+    }
+    .feature-list li {
+      padding: 0.25rem 0;
+      position: relative;
+      padding-left: 1.5rem;
+    }
+    .feature-list li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: #27ae60;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body class="d-flex flex-column min-vh-100">
+<div th:replace="fragments/header :: siteHeader"></div>
+
+<!-- Hero Section -->
+<section class="hero-international py-5 text-white d-flex align-items-center" style="background-image:url('/images/international-tour.jpg'); background-size: cover; background-position: center;">
+  <div class="container text-center">
+    <div data-aos="fade-up">
+      <h1 class="display-4 fw-bold mb-4">International Tours</h1>
+      <p class="lead mb-4">Discover the world's most beautiful destinations with our carefully curated international travel packages. From exotic beaches to cultural wonders, we make your dream destinations accessible.</p>
+      <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center">
+        <a href="#destinations" class="btn btn-light btn-lg"><i class="fa fa-globe me-2"></i>Explore Destinations</a>
+        <a href="/contact" class="btn btn-outline-light btn-lg"><i class="fa fa-phone me-2"></i>Get Custom Quote</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Stats Section -->
+<section class="py-4 bg-light">
+  <div class="container">
+    <div class="row text-center g-4">
+      <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="100">
+        <i class="fa fa-globe fa-2x text-primary mb-2"></i>
+        <h5 class="fw-bold">15+</h5>
+        <small class="text-muted">Countries</small>
+      </div>
+      <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="200">
+        <i class="fa fa-users fa-2x text-success mb-2"></i>
+        <h5 class="fw-bold">1500+</h5>
+        <small class="text-muted">International Travelers</small>
+      </div>
+      <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="300">
+        <i class="fa fa-passport fa-2x text-info mb-2"></i>
+        <h5 class="fw-bold">100%</h5>
+        <small class="text-muted">Visa Assistance</small>
+      </div>
+      <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="400">
+        <i class="fa fa-shield-halved fa-2x text-warning mb-2"></i>
+        <h5 class="fw-bold">24x7</h5>
+        <small class="text-muted">Travel Support</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-5" id="destinations">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <h2 class="h3">Popular International Destinations</h2>
+      <p class="lead text-muted">Choose from our handpicked international destinations</p>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="country-card h-100">
+          <div class="price-badge">₹18,900</div>
+          <img src="https://images.unsplash.com/photo-1467269204594-9661b134dd2b?w=1200&q=80" class="card-img-top" alt="Thailand">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title fw-bold">Thailand Highlights</h5>
+            <ul class="feature-list mb-3">
+              <li>Bangkok 2N · Pattaya 2N</li>
+              <li>Floating markets & temples</li>
+              <li>Beach activities & nightlife</li>
+              <li>Thai massage & cuisine</li>
+            </ul>
+            <div class="mt-auto">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <small class="text-muted"><i class="fa fa-calendar me-1"></i>4 Days</small>
+                <small class="text-muted"><i class="fa fa-users me-1"></i>2+ People</small>
+              </div>
+              <a href="/contact" class="btn btn-primary w-100">Book Now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="country-card h-100">
+          <div class="price-badge">₹35,499</div>
+          <img src="/images/singapore.jpg" class="card-img-top" alt="Singapore">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title fw-bold">Singapore Essentials</h5>
+            <ul class="feature-list mb-3">
+              <li>Marina Bay Sands</li>
+              <li>Sentosa Island</li>
+              <li>Night Safari</li>
+              <li>Universal Studios</li>
+            </ul>
+            <div class="mt-auto">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <small class="text-muted"><i class="fa fa-calendar me-1"></i>5 Days</small>
+                <small class="text-muted"><i class="fa fa-users me-1"></i>Family</small>
+              </div>
+              <a href="/contact" class="btn btn-primary w-100">Book Now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
+        <div class="country-card h-100">
+          <div class="price-badge">₹45,000</div>
+          <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=1200&q=80" class="card-img-top" alt="Bhutan">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title fw-bold">Bhutan Escapes</h5>
+            <ul class="feature-list mb-3">
+              <li>Thimphu & Paro</li>
+              <li>Tiger's Nest Monastery</li>
+              <li>Cultural immersion</li>
+              <li>Himalayan views</li>
+            </ul>
+            <div class="mt-auto">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <small class="text-muted"><i class="fa fa-calendar me-1"></i>6 Days</small>
+                <small class="text-muted"><i class="fa fa-users me-1"></i>Culture</small>
+              </div>
+              <a href="/contact" class="btn btn-primary w-100">Book Now</a>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="q2"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a2">Can you customize?</button></h2>
+            <div id="a2" class="accordion-collapse collapse" data-bs-parent="#intlFaq">
+              <div class="accordion-body">Absolutely. Share dates, budget, and travelers — we’ll tailor it perfectly.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-5">
+        <div class="p-4 bg-light rounded h-100">
+          <h5>Get a Custom Quote</h5>
+          <p class="small text-muted">Tell us your dates and preferences. Our experts will design an itinerary.</p>
+          <a href="/contact" class="btn btn-outline-primary"><i class="fa fa-paper-plane me-2"></i>Contact Us</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Why Choose Us for International Tours -->
+<section class="py-5 bg-light">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <h2 class="h3">Why Choose Us for International Tours?</h2>
+      <p class="lead text-muted">Experience hassle-free international travel with our expert services</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+        <div class="text-center p-4 bg-white rounded-3 shadow-sm h-100">
+          <i class="fa fa-passport fa-3x text-primary mb-3"></i>
+          <h5 class="fw-bold">Visa Assistance</h5>
+          <p class="text-muted mb-0">Complete visa processing support and documentation guidance</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+        <div class="text-center p-4 bg-white rounded-3 shadow-sm h-100">
+          <i class="fa fa-plane fa-3x text-success mb-3"></i>
+          <h5 class="fw-bold">Flight Bookings</h5>
+          <p class="text-muted mb-0">Best flight deals and convenient travel arrangements</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+        <div class="text-center p-4 bg-white rounded-3 shadow-sm h-100">
+          <i class="fa fa-hotel fa-3x text-info mb-3"></i>
+          <h5 class="fw-bold">Hotel Bookings</h5>
+          <p class="text-muted mb-0">Handpicked accommodations for comfort and convenience</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="400">
+        <div class="text-center p-4 bg-white rounded-3 shadow-sm h-100">
+          <i class="fa fa-headset fa-3x text-warning mb-3"></i>
+          <h5 class="fw-bold">24x7 Support</h5>
+          <p class="text-muted mb-0">Round-the-clock assistance during your international journey</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Section -->
+<section class="py-5 bg-primary text-white">
+  <div class="container text-center" data-aos="fade-up">
+    <h2 class="h3 mb-4">Ready to Explore the World?</h2>
+    <p class="lead mb-4">Let us plan your perfect international getaway with personalized itineraries and expert guidance</p>
+    <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center">
+      <a href="/contact" class="btn btn-light btn-lg"><i class="fa fa-phone me-2"></i>Get Custom Quote</a>
+      <a href="https://wa.me/918447133338" target="_blank" class="btn btn-outline-light btn-lg"><i class="fab fa-whatsapp me-2"></i>WhatsApp Us</a>
+    </div>
+  </div>
+</section>
+
+<div class="mt-auto" th:replace="fragments/footer :: siteFooter"></div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 800,
+    easing: 'ease-in-out',
+    once: true
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,4 @@
+body{font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji"}
+.bg-cover{background-position:center;background-size:cover}
+.card-img-top{height:220px;object-fit:cover}
+.navbar-brand img{filter: drop-shadow(0 2px 2px rgba(0,0,0,.1));}

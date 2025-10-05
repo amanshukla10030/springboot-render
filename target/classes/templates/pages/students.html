@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Students Group Tours - HappyGhumakkads</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+  <link href="/css/style.css" rel="stylesheet"/>
+  <style>
+    /* Mobile responsiveness fixes */
+    html, body {
+      overflow-x: hidden !important;
+      width: 100% !important;
+      max-width: 100% !important;
+    }
+
+    * {
+      box-sizing: border-box !important;
+    }
+
+    img {
+      max-width: 100% !important;
+      height: auto !important;
+    }
+
+    .hero-students {
+      background: linear-gradient(135deg, rgba(46, 204, 113, 0.9) 0%, rgba(39, 174, 96, 0.9) 100%);
+      position: relative;
+      min-height: 60vh;
+    }
+    .program-card {
+      background: white;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    .program-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+    }
+    .program-card .card-img-top {
+      height: 220px;
+      object-fit: cover;
+      transition: all 0.3s ease;
+    }
+    .program-card:hover .card-img-top {
+      transform: scale(1.05);
+    }
+    .age-badge {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 25px;
+      font-weight: bold;
+      z-index: 2;
+    }
+    .safety-feature {
+      background: #f8f9fa;
+      border-left: 4px solid #2ecc71;
+      padding: 1rem;
+      margin: 0.5rem 0;
+      border-radius: 0 10px 10px 0;
+    }
+  </style>
+</head>
+<body class="d-flex flex-column min-vh-100">
+<div th:replace="fragments/header :: siteHeader"></div>
+
+<!-- Hero Section -->
+<section class="hero-students py-5 text-white d-flex align-items-center position-relative" style="background-image:url('/images/College-Student-Tour.jpg'); background-size: cover; background-position: center; min-height: 70vh;">
+  <div class="position-absolute top-0 start-0 w-100 h-100" style="background: rgba(46, 204, 113, 0.8); z-index: 1;"></div>
+  <div class="container text-center position-relative" style="z-index: 2;">
+    <div data-aos="fade-up">
+      <h1 class="display-4 fw-bold mb-4 text-white">Students Group Tours</h1>
+      <p class="lead mb-4 text-white">Safe, educational, and fun adventures designed specifically for student groups. From learning expeditions to thrilling outdoor activities, we create memorable experiences that combine education with adventure.</p>
+      <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center">
+        <a href="#programs" class="btn btn-light btn-lg"><i class="fa fa-graduation-cap me-2"></i>View Programs</a>
+        <a href="/contact" class="btn btn-outline-light btn-lg"><i class="fa fa-phone me-2"></i>Plan Group Tour</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Stats Section -->
+<section class="py-4 bg-light">
+  <div class="container">
+    <div class="row text-center g-4">
+      <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="100">
+        <i class="fa fa-graduation-cap fa-2x text-success mb-2"></i>
+        <h5 class="fw-bold">500+</h5>
+        <small class="text-muted">Student Groups</small>
+      </div>
+      <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="200">
+        <i class="fa fa-shield-halved fa-2x text-primary mb-2"></i>
+        <h5 class="fw-bold">100%</h5>
+        <small class="text-muted">Safety Record</small>
+      </div>
+      <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="300">
+        <i class="fa fa-chalkboard-teacher fa-2x text-info mb-2"></i>
+        <h5 class="fw-bold">50+</h5>
+        <small class="text-muted">Educational Sites</small>
+      </div>
+      <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="400">
+        <i class="fa fa-medal fa-2x text-warning mb-2"></i>
+        <h5 class="fw-bold">8+</h5>
+        <small class="text-muted">Years Experience</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-5" id="programs">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <h2 class="h3">Educational Programs</h2>
+      <p class="lead text-muted">Carefully designed programs that blend learning with adventure</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="program-card h-100">
+          <div class="age-badge">Age 12+</div>
+          <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=1200&q=80" class="card-img-top" alt="Camping">
+          <div class="card-body">
+            <h5 class="card-title fw-bold"><i class="fa fa-campground me-2 text-success"></i>Adventure Camping</h5>
+            <ul class="small mb-3" style="list-style: none; padding: 0;">
+              <li>✓ Guided camping with safety protocols</li>
+              <li>✓ Bonfire & storytelling sessions</li>
+              <li>✓ Team building activities</li>
+              <li>✓ Nature conservation workshops</li>
+            </ul>
+            <div class="d-flex justify-content-between align-items-center">
+              <small class="text-muted"><i class="fa fa-clock me-1"></i>2-3 Days</small>
+              <small class="text-success fw-bold">₹2,500/student</small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="program-card h-100">
+          <div class="age-badge">Age 14+</div>
+          <img src="/images/trekking.jpg" class="card-img-top" alt="Trekking">
+          <div class="card-body">
+            <h5 class="card-title fw-bold"><i class="fa fa-person-hiking me-2 text-success"></i>Mountain Trekking</h5>
+            <ul class="small mb-3" style="list-style: none; padding: 0;">
+              <li>✓ Beginner-friendly trails</li>
+              <li>✓ Certified trek leaders</li>
+              <li>✓ Safety equipment provided</li>
+              <li>✓ Environmental awareness</li>
+            </ul>
+            <div class="d-flex justify-content-between align-items-center">
+              <small class="text-muted"><i class="fa fa-clock me-1"></i>3-4 Days</small>
+              <small class="text-success fw-bold">₹3,200/student</small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
+        <div class="program-card h-100">
+          <div class="age-badge">Age 16+</div>
+          <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&q=80" class="card-img-top" alt="Industrial Visits">
+          <div class="card-body">
+            <h5 class="card-title fw-bold"><i class="fa fa-industry me-2 text-success"></i>Industrial Visits</h5>
+            <ul class="small mb-3" style="list-style: none; padding: 0;">
+              <li>✓ Factory floor tours</li>
+              <li>✓ Expert industry talks</li>
+              <li>✓ Career guidance sessions</li>
+              <li>✓ Curriculum-aligned learning</li>
+            </ul>
+            <div class="d-flex justify-content-between align-items-center">
+              <small class="text-muted"><i class="fa fa-clock me-1"></i>1-2 Days</small>
+              <small class="text-success fw-bold">₹1,800/student</small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="400">
+        <div class="program-card h-100">
+          <div class="age-badge">Age 10+</div>
+          <img src="/images/training-sports.jpg" class="card-img-top" alt="Training & Sports">
+          <div class="card-body">
+            <h5 class="card-title fw-bold"><i class="fa fa-medal me-2 text-success"></i>Sports Training</h5>
+            <ul class="small mb-3" style="list-style: none; padding: 0;">
+              <li>✓ Multi-sport activities</li>
+              <li>✓ Leadership workshops</li>
+              <li>✓ Team building exercises</li>
+              <li>✓ Fitness & wellness programs</li>
+            </ul>
+            <div class="d-flex justify-content-between align-items-center">
+              <small class="text-muted"><i class="fa fa-clock me-1"></i>3-5 Days</small>
+              <small class="text-success fw-bold">₹2,800/student</small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="500">
+        <div class="program-card h-100">
+          <div class="age-badge">Age 15+</div>
+          <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1200&q=80" class="card-img-top" alt="Adventure">
+          <div class="card-body">
+            <h5 class="card-title fw-bold"><i class="fa fa-parachute-box me-2 text-success"></i>Adventure Sports</h5>
+            <ul class="small mb-3" style="list-style: none; padding: 0;">
+              <li>✓ Rock climbing & rappelling</li>
+              <li>✓ Zip-lining adventures</li>
+              <li>✓ River rafting (seasonal)</li>
+              <li>✓ Professional safety gear</li>
+            </ul>
+            <div class="d-flex justify-content-between align-items-center">
+              <small class="text-muted"><i class="fa fa-clock me-1"></i>2-3 Days</small>
+              <small class="text-success fw-bold">₹4,500/student</small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="600">
+        <div class="program-card h-100">
+          <div class="age-badge">Age 8+</div>
+          <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=1200&q=80" class="card-img-top" alt="Educational Tours">
+          <div class="card-body">
+            <h5 class="card-title fw-bold"><i class="fa fa-graduation-cap me-2 text-success"></i>Educational Tours</h5>
+            <ul class="small mb-3" style="list-style: none; padding: 0;">
+              <li>✓ Museums & science centers</li>
+              <li>✓ Historical monuments</li>
+              <li>✓ Interactive learning sessions</li>
+              <li>✓ Expert guided tours</li>
+            </ul>
+            <div class="d-flex justify-content-between align-items-center">
+              <small class="text-muted"><i class="fa fa-clock me-1"></i>1-2 Days</small>
+              <small class="text-success fw-bold">₹1,500/student</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Safety First Section -->
+<section class="py-5 bg-light">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <h2 class="h3">Safety is Our Top Priority</h2>
+      <p class="lead text-muted">Comprehensive safety measures for worry-free student adventures</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+        <div class="safety-feature text-center">
+          <i class="fa fa-user-shield fa-3x text-success mb-3"></i>
+          <h5 class="fw-bold">Certified Leaders</h5>
+          <p class="mb-0">Trained and certified activity leaders with first-aid expertise</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+        <div class="safety-feature text-center">
+          <i class="fa fa-kit-medical fa-3x text-success mb-3"></i>
+          <h5 class="fw-bold">Medical Support</h5>
+          <p class="mb-0">On-site medical assistance and emergency response protocols</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+        <div class="safety-feature text-center">
+          <i class="fa fa-phone fa-3x text-success mb-3"></i>
+          <h5 class="fw-bold">24x7 Communication</h5>
+          <p class="mb-0">Real-time updates to parents and school coordinators</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="400">
+        <div class="safety-feature text-center">
+          <i class="fa fa-clipboard-check fa-3x text-success mb-3"></i>
+          <h5 class="fw-bold">Risk Assessment</h5>
+          <p class="mb-0">Thorough risk evaluation and safety briefings before activities</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Why Choose Us -->
+<section class="py-5">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-6" data-aos="fade-right">
+        <h2 class="h3 mb-4">Why Schools Trust Us</h2>
+        <div class="row g-3">
+          <div class="col-6">
+            <div class="text-center p-3 bg-light rounded">
+              <i class="fa fa-award fa-2x text-success mb-2"></i>
+              <h6 class="fw-bold">8+ Years</h6>
+              <small class="text-muted">Experience</small>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="text-center p-3 bg-light rounded">
+              <i class="fa fa-school fa-2x text-primary mb-2"></i>
+              <h6 class="fw-bold">200+</h6>
+              <small class="text-muted">Schools Served</small>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="text-center p-3 bg-light rounded">
+              <i class="fa fa-users fa-2x text-info mb-2"></i>
+              <h6 class="fw-bold">10,000+</h6>
+              <small class="text-muted">Students</small>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="text-center p-3 bg-light rounded">
+              <i class="fa fa-star fa-2x text-warning mb-2"></i>
+              <h6 class="fw-bold">4.9/5</h6>
+              <small class="text-muted">Rating</small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6" data-aos="fade-left">
+        <div class="bg-success text-white p-5 rounded-3">
+          <h4 class="fw-bold mb-4">Special Benefits for Schools</h4>
+          <ul class="list-unstyled">
+            <li class="mb-2"><i class="fa fa-check-circle me-2"></i>Group discounts for 20+ students</li>
+            <li class="mb-2"><i class="fa fa-check-circle me-2"></i>Free teacher/chaperone spots</li>
+            <li class="mb-2"><i class="fa fa-check-circle me-2"></i>Customizable itineraries</li>
+            <li class="mb-2"><i class="fa fa-check-circle me-2"></i>Educational activity reports</li>
+            <li class="mb-2"><i class="fa fa-check-circle me-2"></i>Flexible payment options</li>
+            <li class="mb-0"><i class="fa fa-check-circle me-2"></i>Insurance coverage included</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Section -->
+<section class="py-5 bg-primary text-white">
+  <div class="container text-center" data-aos="fade-up">
+    <h2 class="h3 mb-4">Ready to Plan Your School Trip?</h2>
+    <p class="lead mb-4">Contact us for customized student group packages with special educational discounts</p>
+    <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center">
+      <a href="/contact" class="btn btn-light btn-lg"><i class="fa fa-phone me-2"></i>Get School Quote</a>
+      <a href="https://wa.me/918447133338" target="_blank" class="btn btn-outline-light btn-lg"><i class="fab fa-whatsapp me-2"></i>WhatsApp Now</a>
+    </div>
+  </div>
+</section>
+
+<div class="mt-auto" th:replace="fragments/footer :: siteFooter"></div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 800,
+    easing: 'ease-in-out',
+    once: true
+  });
+</script>
+</body>
+</html>

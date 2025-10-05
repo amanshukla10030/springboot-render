@@ -147,6 +147,36 @@
       background-clip: text;
       margin-bottom: 0.4rem;
     }
+    @media (max-width: 768px) {
+      .payment-section .row {
+        text-align: center;
+      }
+      .payment-image-container {
+        max-width: 100%;
+        margin-top: 1rem;
+      }
+      .payment-image {
+        max-height: 50px;
+      }
+      #customPaymentAmount {
+        max-width: 100%;
+      }
+    }
+    @media (max-width: 576px) {
+      .payment-section {
+        padding: 1rem;
+      }
+      .payment-image-container {
+        max-width: 90%;
+        margin: 1rem auto;
+      }
+      .payment-image {
+        max-height: 40px;
+      }
+      #customPaymentAmount {
+        font-size: 14px;
+      }
+    }
   </style>
   
   <footer class="footer-enhanced mt-auto">

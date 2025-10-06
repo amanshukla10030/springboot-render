@@ -584,26 +584,21 @@
         payBtn.innerHTML = originalText;
       });
     }
-    // QR Code functionality
+    
+// QR Code functionality
 document.addEventListener('DOMContentLoaded', function() {
-  // Show QR Code Modal
+  // Show QR Code Modal (NO amount validation)
   window.showQRCode = function() {
+    // Update QR modal amount (optional - shows 0 if no amount entered)
     const amountInput = document.getElementById('customPaymentAmount');
-    const amount = amountInput ? amountInput.value : '0';
+    const amount = amountInput && amountInput.value ? amountInput.value : '0';
     
-    if (!amount || parseFloat(amount) < 1) {
-      alert('Please enter a valid amount first');
-      amountInput.focus();
-      return;
-    }
-    
-    // Update QR modal amount
     const qrAmount = document.getElementById('qrAmount');
     if (qrAmount) {
       qrAmount.textContent = amount;
     }
     
-    // Show modal
+    // Show modal immediately
     const modal = document.getElementById('qrModal');
     if (modal) {
       modal.classList.add('active');
@@ -635,5 +630,33 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 });
+
+// Separate function for Pay Now button (WITH amount validation for Razorpay)
+function initiateCustomPayment() {
+  const amountInput = document.getElementById('customPaymentAmount');
+  const amount = parseFloat(amountInput.value);
+  
+  // Amount validation only for Pay Now button
+  if (!amount || amount < 1) {
+    alert('Please enter a valid amount (minimum ₹1)');
+    return;
+  }
+  
+  // Rest of your Razorpay payment processing code...
+  const payBtn = document.getElementById('customPayBtn');
+  const originalText = payBtn.innerHTML;
+  payBtn.disabled = true;
+  payBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-1"></span>Processing...';
+  
+  // Your existing Razorpay code continues here...
+  fetch('/payment/create-custom-order', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ amount: amount })
+  })
+  // ... rest of your payment processing
+}
   </script>
 </div>

@@ -595,18 +595,18 @@
     
     // Initialize payment buttons
     document.addEventListener('DOMContentLoaded', function() {
-      const payNowBtn = document.getElementById('payNowBtn');
-      const payWithQRBtn = document.getElementById('payWithQRBtn');
+      const customPayBtn = document.getElementById('customPayBtn');
+      const qrPayBtn = document.getElementById('qrPayBtn');
       
-      if (payNowBtn) {
-        payNowBtn.addEventListener('click', function(e) {
+      if (customPayBtn) {
+        customPayBtn.addEventListener('click', function(e) {
           e.preventDefault();
           initiateCustomPayment();
         });
       }
       
-      if (payWithQRBtn) {
-        payWithQRBtn.addEventListener('click', function(e) {
+      if (qrPayBtn) {
+        qrPayBtn.addEventListener('click', function(e) {
           e.preventDefault();
           showQRCode();
         });

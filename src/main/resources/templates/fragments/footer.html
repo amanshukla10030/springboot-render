@@ -539,38 +539,76 @@
         payBtn.innerHTML = originalText;
       });
     }
-    let isModalClosing = false;
-    
-    function showQRCode() {
-      if (isModalClosing) return;
+    // QR Code Modal functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      // Only initialize if modal exists
       const modal = document.getElementById('qrModal');
-      modal.classList.add('active');
-      document.body.style.overflow = 'hidden';
-      // Add event listener for clicks on the modal overlay
-      modal.addEventListener('click', handleOutsideClick, true);
-    }
-    
-    function hideQRCode() {
-      if (isModalClosing) return;
-      isModalClosing = true;
+      if (!modal) return;
       
-      const modal = document.getElementById('qrModal');
-      modal.classList.remove('active');
-      document.body.style.overflow = 'auto';
-      
-      // Remove the click listener when hiding
-      modal.removeEventListener('click', handleOutsideClick, true);
-      
-      // Reset the flag after the animation completes
-      setTimeout(() => {
-        isModalClosing = false;
-      }, 300); // Match this with your fadeIn animation duration
-    }
-    
-    function handleOutsideClick(event) {
-      const modalContent = document.querySelector('.qr-modal-content');
-      // If the click is outside the modal content and not on the close button
-      if (!modalContent.contains(event.target) && !event.target.closest('.qr-close')) {
-        hideQRCode();
+      const qrButtons = document.querySelectorAll('[onclick^="showQRCode"]');
+      const closeButton = document.querySelector('.qr-close');
+      let isModalClosing = false;
+
+      // Function to show QR code modal
+      window.showQRCode = function() {
+        if (isModalClosing || !modal) return;
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        return false; // Prevent default action
+      };
+
+      // Function to hide QR code modal
+      function hideQRCode() {
+        if (isModalClosing || !modal) return;
+        isModalClosing = true;
+        
+        modal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+        
+        // Reset the flag after the animation completes
+        setTimeout(() => {
+          isModalClosing = false;
+        }, 300);
       }
-    };
+
+      // Handle outside click
+      function handleOutsideClick(event) {
+        const modalContent = document.querySelector('.qr-modal-content');
+        if (modalContent && !modalContent.contains(event.target) && !event.target.closest('.qr-close')) {
+          hideQRCode();
+        }
+      }
+
+      // Add event listeners
+      if (qrButtons.length > 0) {
+        qrButtons.forEach(button => {
+          button.addEventListener('click', window.showQRCode);
+        });
+      }
+
+      if (closeButton) {
+        closeButton.addEventListener('click', hideQRCode);
+      }
+
+      modal.addEventListener('click', handleOutsideClick);
+    });
+    
+    // Initialize payment buttons
+    document.addEventListener('DOMContentLoaded', function() {
+      const payNowBtn = document.getElementById('payNowBtn');
+      const payWithQRBtn = document.getElementById('payWithQRBtn');
+      
+      if (payNowBtn) {
+        payNowBtn.addEventListener('click', function(e) {
+          e.preventDefault();
+          initiateCustomPayment();
+        });
+      }
+      
+      if (payWithQRBtn) {
+        payWithQRBtn.addEventListener('click', function(e) {
+          e.preventDefault();
+          showQRCode();
+        });
+      }
+    });

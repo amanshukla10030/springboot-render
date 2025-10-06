@@ -87,6 +87,11 @@
   background-color: rgba(0,0,0,0.9);
   animation: fadeIn 0.3s ease;
   overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  touch-action: manipulation;
+  will-change: transform;
+  backface-visibility: hidden;
+  perspective: 1000px;
 }
 .qr-modal.active {
   display: flex;
@@ -94,6 +99,7 @@
   justify-content: center;
   padding: 20px;
   box-sizing: border-box;
+  pointer-events: auto;
 }
 .qr-modal-content {
   background: white;
@@ -533,24 +539,38 @@
         payBtn.innerHTML = originalText;
       });
     }
+    let isModalClosing = false;
+    
     function showQRCode() {
-  const amount = document.getElementById('customPaymentAmount').value || '0';
-  document.getElementById('qrAmount').textContent = amount;
-  document.getElementById('qrModal').classList.add('active');
-  document.body.style.overflow = 'hidden';
-}
-
-function hideQRCode() {
-  document.getElementById('qrModal').classList.remove('active');
-  document.body.style.overflow = 'auto';
-}
-
-// Close modal when clicking outside
-window.onclick = function(event) {
-  const modal = document.getElementById('qrModal');
-  if (event.target === modal) {
-    hideQRCode();
-  }
-};
-  </script>
-</div>
+      if (isModalClosing) return;
+      const modal = document.getElementById('qrModal');
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+      // Add event listener for clicks on the modal overlay
+      modal.addEventListener('click', handleOutsideClick, true);
+    }
+    
+    function hideQRCode() {
+      if (isModalClosing) return;
+      isModalClosing = true;
+      
+      const modal = document.getElementById('qrModal');
+      modal.classList.remove('active');
+      document.body.style.overflow = 'auto';
+      
+      // Remove the click listener when hiding
+      modal.removeEventListener('click', handleOutsideClick, true);
+      
+      // Reset the flag after the animation completes
+      setTimeout(() => {
+        isModalClosing = false;
+      }, 300); // Match this with your fadeIn animation duration
+    }
+    
+    function handleOutsideClick(event) {
+      const modalContent = document.querySelector('.qr-modal-content');
+      // If the click is outside the modal content and not on the close button
+      if (!modalContent.contains(event.target) && !event.target.closest('.qr-close')) {
+        hideQRCode();
+      }
+    };

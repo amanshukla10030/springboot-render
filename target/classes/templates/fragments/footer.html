@@ -75,6 +75,62 @@
       position: relative;
       overflow: hidden;
     }
+    /* QR Code Modal Styles */
+.qr-modal {
+  display: none;
+  position: fixed;
+  z-index: 10000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.8);
+  animation: fadeIn 0.3s ease;
+}
+.qr-modal.active {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.qr-modal-content {
+  background: white;
+  margin: 5% auto;
+  padding: 1.5rem;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 300px;
+  text-align: center;
+  position: relative;
+}
+.qr-close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  color: #aaa;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.qr-close:hover {
+  color: #333;
+}
+.qr-code-container {
+  margin: 1rem 0;
+  padding: 10px;
+  background: white;
+  border-radius: 8px;
+  display: inline-block;
+}
+.qr-image {
+  max-width: 100%;
+  height: auto;
+  max-height: 250px;
+  border: 1px solid #eee;
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
     .payment-section::before {
       content: '';
       position: absolute;
@@ -306,39 +362,29 @@
                     <i class="fas fa-lock"></i>
                     <span>100% Secure</span>
                   </div>
-                  <!-- Custom Amount Payment -->
-                  <div class="mt-2" style="position: relative; z-index: 1;">
-                    <div class="input-group input-group-sm" style="max-width: 250px;">
-                      <span class="input-group-text bg-white">₹</span>
-                      <input type="number" 
-                             class="form-control" 
-                             id="customPaymentAmount" 
-                             placeholder="Enter amount" 
-                             min="1"
-                             style="border-left: 0;">
-                      <button class="btn btn-success btn-sm" 
-                              id="customPayBtn"
-                              onclick="initiateCustomPayment()">
-                        <i class="fas fa-credit-card me-1"></i>Pay Now
-                      </button>
-                    </div>
-                    <small class="text-muted" style="font-size: 0.7rem;">Pay any amount (advance/partial)</small>
-                  </div>
-                </div>
-                <div class="col-lg-8 d-flex align-items-center justify-content-end">
-                  <div class="payment-image-container">
-                    <img src="/images/Payment-Option.jpeg" 
-                         alt="Payment Options - Credit Card, Debit Card, UPI, Net Banking, Wallets" 
-                         class="payment-image"
-                         loading="lazy">
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+ <!-- Custom Amount Payment -->
+<div class="mt-2" style="position: relative; z-index: 1;">
+  <div class="input-group input-group-sm mb-2" style="max-width: 250px;">
+    <span class="input-group-text bg-white">₹</span>
+    <input type="number" 
+           class="form-control" 
+           id="customPaymentAmount" 
+           placeholder="Enter amount" 
+           min="1"
+           style="border-left: 0;">
+    <button class="btn btn-success btn-sm" 
+            id="customPayBtn"
+            onclick="initiateCustomPayment()">
+      <i class="fas fa-credit-card me-1"></i>Pay Now
+    </button>
+  </div>
+  <button class="btn btn-primary btn-sm" 
+          id="qrPayBtn"
+          onclick="showQRCode()">
+    <i class="fas fa-qrcode me-1"></i>Pay with QR Code
+  </button>
+  <small class="text-muted d-block mt-1" style="font-size: 0.7rem;">Pay any amount (advance/partial)</small>
+</div>
     
     <!-- Footer Bottom -->
     <div class="footer-bottom py-3">
@@ -360,6 +406,19 @@
         </div>
       </div>
     </div>
+    <!-- QR Code Modal -->
+<div id="qrModal" class="qr-modal">
+  <div class="qr-modal-content">
+    <span class="qr-close" onclick="hideQRCode()">&times;</span>
+    <h5 class="mb-3">Scan QR Code to Pay</h5>
+    <div class="qr-code-container">
+      <img src="/images/phonepe-qr.jpg" alt="PhonePe QR Code" class="qr-image" onerror="this.src='/images/placeholder.svg'">
+    </div>
+    <p class="mt-3 text-muted">Scan this QR code with your PhonePe/GPay/UPI app</p>
+    <p>Amount: ₹<span id="qrAmount">0</span></p>
+    <button class="btn btn-secondary btn-sm" onclick="hideQRCode()">Close</button>
+  </div>
+</div>
   </footer>
   
   <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
@@ -458,5 +517,24 @@
         payBtn.innerHTML = originalText;
       });
     }
+    function showQRCode() {
+  const amount = document.getElementById('customPaymentAmount').value || '0';
+  document.getElementById('qrAmount').textContent = amount;
+  document.getElementById('qrModal').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function hideQRCode() {
+  document.getElementById('qrModal').classList.remove('active');
+  document.body.style.overflow = 'auto';
+}
+
+// Close modal when clicking outside
+window.onclick = function(event) {
+  const modal = document.getElementById('qrModal');
+  if (event.target === modal) {
+    hideQRCode();
+  }
+};
   </script>
 </div>

@@ -75,77 +75,6 @@
       position: relative;
       overflow: hidden;
     }
-    /* QR Code Modal Styles */
-.qr-modal {
-  display: none;
-  position: fixed;
-  z-index: 9999;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0,0,0,0.9);
-  animation: fadeIn 0.3s ease;
-  overflow: auto;
-  -webkit-overflow-scrolling: touch;
-  touch-action: manipulation;
-  will-change: transform;
-  backface-visibility: hidden;
-  perspective: 1000px;
-}
-.qr-modal.active {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-  box-sizing: border-box;
-  pointer-events: auto;
-}
-.qr-modal-content {
-  background: white;
-  padding: 2rem;
-  border-radius: 12px;
-  width: 100%;
-  max-width: 320px;
-  text-align: center;
-  position: relative;
-  margin: 20px;
-  box-shadow: 0 5px 30px rgba(0,0,0,0.3);
-}
-.qr-close {
-  position: absolute;
-  top: 10px;
-  right: 15px;
-  color: #666;
-  font-size: 28px;
-  font-weight: bold;
-  cursor: pointer;
-  line-height: 1;
-  padding: 0 8px;
-  z-index: 10001;
-  transition: all 0.2s ease;
-}
-.qr-close:hover {
-  color: #333;
-  transform: scale(1.1);
-}
-.qr-code-container {
-  margin: 1rem 0;
-  padding: 10px;
-  background: white;
-  border-radius: 8px;
-  display: inline-block;
-}
-.qr-image {
-  max-width: 100%;
-  height: auto;
-  max-height: 250px;
-  border: 1px solid #eee;
-}
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
     .payment-section::before {
       content: '';
       position: absolute;
@@ -170,32 +99,25 @@
       z-index: 1;
       background: white;
       border-radius: 4px;
-      padding: 0.5rem;
+      padding: 0.05rem;
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
       transition: all 0.3s ease;
-      max-width: 100%;
-      width: 100%;
-      height: auto;
-      margin: 0 auto;
-      overflow: visible;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 60px;
+      max-width: 400px;
+      max-height: 70px;
+      margin: 0;
+      overflow: hidden;
     }
     .payment-image-container:hover {
       transform: scale(1.02);
       box-shadow: 0 5px 20px rgba(52, 152, 219, 0.3);
     }
     .payment-image {
-      width: auto;
-      max-width: 100%;
-      max-height: 50px;
-      height: auto;
+      width: 100%;
+      height: 100%;
+      max-height: 65px;
       object-fit: contain;
       display: block;
       border-radius: 3px;
-      margin: 0 auto;
     }
     .secure-badge {
       display: inline-flex;
@@ -384,27 +306,39 @@
                     <i class="fas fa-lock"></i>
                     <span>100% Secure</span>
                   </div>
- <!-- Custom Amount Payment -->
-<div class="mt-2" style="position: relative; z-index: 1;">
-  <div class="input-group input-group-sm mb-2" style="max-width: 250px;">
-    <span class="input-group-text bg-white">₹</span>
-    <input type="number" 
-           class="form-control" 
-           id="customPaymentAmount" 
-           placeholder="Enter amount" 
-           min="1"
-           style="border-left: 0;">
-    <button class="btn btn-success btn-sm" 
-            id="customPayBtn">
-      <i class="fas fa-credit-card me-1"></i>Pay Now
-    </button>
-  </div>
-  <button class="btn btn-primary btn-sm" 
-          id="qrPayBtn">
-    <i class="fas fa-qrcode me-1"></i>Pay with QR Code
-  </button>
-  <small class="text-muted d-block mt-1" style="font-size: 0.7rem;">Pay any amount (advance/partial)</small>
-</div>
+                  <!-- Custom Amount Payment -->
+                  <div class="mt-2" style="position: relative; z-index: 1;">
+                    <div class="input-group input-group-sm" style="max-width: 250px;">
+                      <span class="input-group-text bg-white">₹</span>
+                      <input type="number" 
+                             class="form-control" 
+                             id="customPaymentAmount" 
+                             placeholder="Enter amount" 
+                             min="1"
+                             style="border-left: 0;">
+                      <button class="btn btn-success btn-sm" 
+                              id="customPayBtn"
+                              onclick="initiateCustomPayment()">
+                        <i class="fas fa-credit-card me-1"></i>Pay Now
+                      </button>
+                    </div>
+                    <small class="text-muted" style="font-size: 0.7rem;">Pay any amount (advance/partial)</small>
+                  </div>
+                </div>
+                <div class="col-lg-8 d-flex align-items-center justify-content-end">
+                  <div class="payment-image-container">
+                    <img src="/images/Payment-Option.jpeg" 
+                         alt="Payment Options - Credit Card, Debit Card, UPI, Net Banking, Wallets" 
+                         class="payment-image"
+                         loading="lazy">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     
     <!-- Footer Bottom -->
     <div class="footer-bottom py-3">
@@ -426,19 +360,6 @@
         </div>
       </div>
     </div>
-    <!-- QR Code Modal -->
-<div id="qrModal" class="qr-modal">
-  <div class="qr-modal-content">
-    <span class="qr-close" onclick="hideQRCode()">&times;</span>
-    <h5 class="mb-3">Scan QR Code to Pay</h5>
-    <div class="qr-code-container">
-      <img src="/images/Payment-Option.jpeg" alt="PhonePe QR Code" class="qr-image" onerror="this.src='/images/placeholder.svg'">
-    </div>
-    <p class="mt-3 text-muted">Scan this QR code with your PhonePe/GPay/UPI app</p>
-    <p>Amount: ₹<span id="qrAmount">0</span></p>
-    <button class="btn btn-secondary btn-sm" onclick="hideQRCode()">Close</button>
-  </div>
-</div>
   </footer>
   
   <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
@@ -537,151 +458,5 @@
         payBtn.innerHTML = originalText;
       });
     }
-    // QR Code Modal functionality
-    document.addEventListener('DOMContentLoaded', function() {
-      // Only initialize if modal exists
-      const modal = document.getElementById('qrModal');
-      if (!modal) return;
-      
-      const qrButtons = document.querySelectorAll('[onclick^="showQRCode"]');
-      const closeButton = document.querySelector('.qr-close');
-      let isModalClosing = false;
-
-      // Function to show QR code modal
-      window.showQRCode = function() {
-        if (isModalClosing || !modal) return;
-        modal.classList.add('active');
-        document.body.style.overflow = 'hidden';
-        return false; // Prevent default action
-      };
-
-      // Function to hide QR code modal
-      function hideQRCode() {
-        if (isModalClosing || !modal) return;
-        isModalClosing = true;
-        
-        modal.classList.remove('active');
-        document.body.style.overflow = 'auto';
-        
-        // Reset the flag after the animation completes
-        setTimeout(() => {
-          isModalClosing = false;
-        }, 300);
-      }
-
-      // Handle outside click
-      function handleOutsideClick(event) {
-        const modalContent = document.querySelector('.qr-modal-content');
-        if (modalContent && !modalContent.contains(event.target) && !event.target.closest('.qr-close')) {
-          hideQRCode();
-        }
-      }
-
-      // Add event listeners
-      if (qrButtons.length > 0) {
-        qrButtons.forEach(button => {
-          button.addEventListener('click', window.showQRCode);
-        });
-      }
-
-      if (closeButton) {
-        closeButton.addEventListener('click', hideQRCode);
-      }
-
-      modal.addEventListener('click', handleOutsideClick);
-    });
-    
-    // Payment buttons functionality
-    document.addEventListener('DOMContentLoaded', function() {
-      console.log('DOM loaded - initializing payment buttons');
-      
-      // Make functions globally available
-      window.initiateCustomPayment = function() {
-        console.log('initiateCustomPayment called');
-        const amountInput = document.getElementById('customPaymentAmount');
-        if (!amountInput) {
-          console.error('customPaymentAmount input not found');
-          return;
-        }
-        
-        const amount = parseFloat(amountInput.value);
-        
-        if (!amount || amount < 1) {
-          alert('Please enter a valid amount (minimum ₹1)');
-          return;
-        }
-        
-        const payBtn = document.getElementById('customPayBtn');
-        if (payBtn) {
-          const originalText = payBtn.innerHTML;
-          payBtn.disabled = true;
-          payBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-1"></span>Processing...';
-          
-          // Here you would typically make an AJAX call to process the payment
-          console.log('Processing payment for amount:', amount);
-          
-          // For now, we'll just show a success message after a delay
-          setTimeout(function() {
-            alert('Payment of ₹' + amount + ' processed successfully!');
-            payBtn.disabled = false;
-            payBtn.innerHTML = originalText;
-          }, 1500);
-        }
-      };
-
-      window.showQRCode = function() {
-        console.log('showQRCode called');
-        const modal = document.getElementById('qrModal');
-        if (modal) {
-          // Update the QR code amount if needed
-          const amountInput = document.getElementById('customPaymentAmount');
-          if (amountInput && amountInput.value) {
-            const qrAmount = document.getElementById('qrAmount');
-            if (qrAmount) {
-              qrAmount.textContent = amountInput.value;
-            }
-          }
-          
-          modal.classList.add('active');
-          document.body.style.overflow = 'hidden';
-        } else {
-          console.error('QR Modal not found');
-        }
-      };
-
-      // Add click handlers
-      const customPayBtn = document.getElementById('customPayBtn');
-      const qrPayBtn = document.getElementById('qrPayBtn');
-      
-      if (customPayBtn) {
-        console.log('Found customPayBtn');
-        customPayBtn.addEventListener('click', function(e) {
-          e.preventDefault();
-          window.initiateCustomPayment();
-        });
-      } else {
-        console.error('customPayBtn not found');
-      }
-      
-      if (qrPayBtn) {
-        console.log('Found qrPayBtn');
-        qrPayBtn.addEventListener('click', function(e) {
-          e.preventDefault();
-          window.showQRCode();
-        });
-      } else {
-        console.error('qrPayBtn not found');
-      }
-      
-      // Close modal functionality
-      const closeButtons = document.querySelectorAll('.qr-close, .btn-secondary');
-      closeButtons.forEach(btn => {
-        btn.addEventListener('click', function() {
-          const modal = document.getElementById('qrModal');
-          if (modal) {
-            modal.classList.remove('active');
-            document.body.style.overflow = 'auto';
-          }
-        });
-      });
-    });
+  </script>
+</div>

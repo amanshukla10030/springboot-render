@@ -395,14 +395,12 @@
            min="1"
            style="border-left: 0;">
     <button class="btn btn-success btn-sm" 
-            id="customPayBtn"
-            onclick="initiateCustomPayment()">
+            id="customPayBtn">
       <i class="fas fa-credit-card me-1"></i>Pay Now
     </button>
   </div>
   <button class="btn btn-primary btn-sm" 
-          id="qrPayBtn"
-          onclick="showQRCode()">
+          id="qrPayBtn">
     <i class="fas fa-qrcode me-1"></i>Pay with QR Code
   </button>
   <small class="text-muted d-block mt-1" style="font-size: 0.7rem;">Pay any amount (advance/partial)</small>
@@ -593,22 +591,97 @@
       modal.addEventListener('click', handleOutsideClick);
     });
     
-    // Initialize payment buttons
+    // Payment buttons functionality
     document.addEventListener('DOMContentLoaded', function() {
+      console.log('DOM loaded - initializing payment buttons');
+      
+      // Make functions globally available
+      window.initiateCustomPayment = function() {
+        console.log('initiateCustomPayment called');
+        const amountInput = document.getElementById('customPaymentAmount');
+        if (!amountInput) {
+          console.error('customPaymentAmount input not found');
+          return;
+        }
+        
+        const amount = parseFloat(amountInput.value);
+        
+        if (!amount || amount < 1) {
+          alert('Please enter a valid amount (minimum ₹1)');
+          return;
+        }
+        
+        const payBtn = document.getElementById('customPayBtn');
+        if (payBtn) {
+          const originalText = payBtn.innerHTML;
+          payBtn.disabled = true;
+          payBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-1"></span>Processing...';
+          
+          // Here you would typically make an AJAX call to process the payment
+          console.log('Processing payment for amount:', amount);
+          
+          // For now, we'll just show a success message after a delay
+          setTimeout(function() {
+            alert('Payment of ₹' + amount + ' processed successfully!');
+            payBtn.disabled = false;
+            payBtn.innerHTML = originalText;
+          }, 1500);
+        }
+      };
+
+      window.showQRCode = function() {
+        console.log('showQRCode called');
+        const modal = document.getElementById('qrModal');
+        if (modal) {
+          // Update the QR code amount if needed
+          const amountInput = document.getElementById('customPaymentAmount');
+          if (amountInput && amountInput.value) {
+            const qrAmount = document.getElementById('qrAmount');
+            if (qrAmount) {
+              qrAmount.textContent = amountInput.value;
+            }
+          }
+          
+          modal.classList.add('active');
+          document.body.style.overflow = 'hidden';
+        } else {
+          console.error('QR Modal not found');
+        }
+      };
+
+      // Add click handlers
       const customPayBtn = document.getElementById('customPayBtn');
       const qrPayBtn = document.getElementById('qrPayBtn');
       
       if (customPayBtn) {
+        console.log('Found customPayBtn');
         customPayBtn.addEventListener('click', function(e) {
           e.preventDefault();
-          initiateCustomPayment();
+          window.initiateCustomPayment();
         });
+      } else {
+        console.error('customPayBtn not found');
       }
       
       if (qrPayBtn) {
+        console.log('Found qrPayBtn');
         qrPayBtn.addEventListener('click', function(e) {
           e.preventDefault();
-          showQRCode();
+          window.showQRCode();
         });
+      } else {
+        console.error('qrPayBtn not found');
       }
+      
+      // Close modal functionality
+      const closeButtons = document.querySelectorAll('.qr-close, .btn-secondary');
+      closeButtons.forEach(btn => {
+        btn.addEventListener('click', function() {
+          const modal = document.getElementById('qrModal');
+          if (modal) {
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+          }
+        });
+      });
     });

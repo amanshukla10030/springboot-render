@@ -3,7 +3,7 @@ package com.happyghumakkads;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.openfeign.EnableFeignClients;
-//Updated one 15
+//Updated one 23
 @SpringBootApplication
 @EnableFeignClients
 public class TravelAgencyApplication {

@@ -5,17 +5,13 @@ spring:
   application:
     name: happyghumakkads-travel-agency
   datasource:
-    url: jdbc:postgresql://db.gbdwmrhdxhpfqmvcujgh.supabase.co:5432/postgres?sslmode=require&sslfactory=org.postgresql.ssl.NonValidatingFactory&user=postgres&password=Happyghum%401234
+    url: ${DATABASE_URL:jdbc:postgresql://dpg-d3lkrdggjchc73cg446g-a.oregon-postgres.render.com:5432/happyghumakkads?sslmode=require}
+    username: ${DB_USERNAME:root}
+    password: ${DB_PASSWORD:FrOOaIlQNB4WaLUOXLjfw7AVqkAErVpT}
     driver-class-name: org.postgresql.Driver
     hikari:
-      connection-timeout: 30000
-      maximum-pool-size: 5
-      minimum-idle: 2
-      idle-timeout: 10000
-      max-lifetime: 300000
-      connection-test-query: SELECT 1
+      jdbc-url: ${DATABASE_URL:jdbc:postgresql://dpg-d3lkrdggjchc73cg446g-a.oregon-postgres.render.com:5432/happyghumakkads?sslmode=require}
   jpa:
-    show-sql: true
     hibernate:
       ddl-auto: update
       jdbc:
@@ -24,9 +20,6 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
         format_sql: true
-        jdbc:
-          lob:
-            non_contextual_creation: true
   thymeleaf:
     cache: false
     prefix: classpath:/templates/

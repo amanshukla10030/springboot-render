@@ -5,12 +5,12 @@ spring:
   application:
     name: happyghumakkads-travel-agency
   datasource:
-    url: ${DATABASE_URL:jdbc:postgresql://dpg-d3lkrdggjchc73cg446g-a.oregon-postgres.render.com:5432/happyghumakkads?sslmode=require}
-    username: ${DB_USERNAME:root}
-    password: ${DB_PASSWORD:FrOOaIlQNB4WaLUOXLjfw7AVqkAErVpT}
+    url: jdbc:postgresql://db.gbdwmrhdxhpfqmvcujgh.supabase.co:5432/postgres?sslmode=require
+    username: postgres
+    password: ${DB_PASSWORD}
     driver-class-name: org.postgresql.Driver
     hikari:
-      jdbc-url: ${DATABASE_URL:jdbc:postgresql://dpg-d3lkrdggjchc73cg446g-a.oregon-postgres.render.com:5432/happyghumakkads?sslmode=require}
+      jdbc-url: jdbc:postgresql://db.gbdwmrhdxhpfqmvcujgh.supabase.co:5432/postgres?sslmode=require
   jpa:
     hibernate:
       ddl-auto: update

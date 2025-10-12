@@ -5,14 +5,17 @@ spring:
   application:
     name: happyghumakkads-travel-agency
   datasource:
-    url: ${DATABASE_URL}
-    username: ${DB_USERNAME}
-    password: ${DB_PASSWORD}
+    url: jdbc:postgresql://dpg-d3lkrdggjchc73cg446g-a.oregon-postgres.render.com:5432/happyghumakkads?sslmode=require
+    username: root
+    password: FrOOaIlQNB4WaLUOXLjfw7AVqkAErVpT
     driver-class-name: org.postgresql.Driver
+    hikari:
+      jdbc-url: jdbc:postgresql://dpg-d3lkrdggjchc73cg446g-a.oregon-postgres.render.com:5432/happyghumakkads?sslmode=require
   jpa:
     hibernate:
       ddl-auto: update
-    show-sql: false
+      jdbc:
+        time_zone: UTC
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect

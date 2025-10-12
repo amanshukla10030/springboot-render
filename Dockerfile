@@ -22,6 +22,9 @@ RUN mvn clean package -DskipTests
 # Production stage
 FROM eclipse-temurin:17-jre-alpine
 
+# Install psql client for PostgreSQL health checks
+RUN apk add --no-cache postgresql-client
+
 # Set working directory
 WORKDIR /app
 
@@ -41,9 +44,9 @@ USER appuser
 # Expose port (Railway provides PORT environment variable)
 EXPOSE 8080
 
-# Health check
+# Health check (supports both MySQL and PostgreSQL)
 HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
   CMD wget --no-verbose --tries=1 --spider http://localhost:8080/actuator/health || exit 1
 
-# Run the application with Railway port configuration
-ENTRYPOINT ["sh", "-c", "java -jar app.jar --server.port=${PORT:-8080}"]
+# Run the application with Railway port configuration and active profile from environment
+ENTRYPOINT ["sh", "-c", "java -Dspring.profiles.active=${SPRING_PROFILES_ACTIVE:-prod} -jar app.jar --server.port=${PORT:-8080}"]

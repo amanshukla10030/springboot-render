@@ -33,7 +33,7 @@ spring:
     from-name: ${SENDGRID_FROM_NAME:Happy Ghumakkads}
 
   profiles:
-    active: ${ENV:prod}
+    active: ${SPRING_PROFILES_ACTIVE:${ENV:prod}}
 
 # Razorpay Configuration
 razorpay:

@@ -5,9 +5,9 @@ spring:
   application:
     name: happyghumakkads-travel-agency
   datasource:
-    url: ${DATABASE_URL:jdbc:postgresql://ep-noisy-flower-a1ys6v3g-pooler.ap-southeast-1.aws.neon.tech/neondb?sslmode=require&connect_timeout=10}
-    username: ${DB_USERNAME:neondb_owner}
-    password: ${DB_PASSWORD:npg_Lm7DjW9GAkOV}
+    url: ${DATABASE_URL:}
+    username: ${DB_USERNAME:}
+    password: ${DB_PASSWORD:}
     driver-class-name: org.postgresql.Driver
     hikari:
       connection-timeout: 30000

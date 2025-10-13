@@ -29,6 +29,7 @@ spring:
   # SendGrid Configuration
   sendgrid:
     api-key: ${SENDGRID_API_KEY}
+    from-email: ${SENDGRID_FROM_EMAIL:info.happyghumakkads@gmail.com}
     from-name: ${SENDGRID_FROM_NAME:Happy Ghumakkads}
 
   profiles:
@@ -42,6 +43,7 @@ razorpay:
 # Logging
 logging:
   level:
+    com.happyghumakkads: DEBUG
     org.springframework.web: DEBUG
     org.hibernate.SQL: DEBUG
 

@@ -37,8 +37,8 @@ spring:
 
 # Razorpay Configuration
 razorpay:
-  key-id: rzp_live_ROWxwzLW9cavg2
-  key-secret: 89tAXP9XWRilvNoervwUHdkw
+  key-id: ${RAZORPAY_KEY_ID:}
+  key-secret: ${RAZORPAY_KEY_SECRET:}
 
 
 # Logging

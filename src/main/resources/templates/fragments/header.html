@@ -156,6 +156,35 @@
         .navbar-toggler:focus {
             box-shadow: 0 0 0 0.2rem rgba(26, 115, 232, 0.25) !important;
         }
+        /* Add this to prevent horizontal shifting */
+html {
+    overflow-y: scroll;
+    width: 100vw;
+    overflow-x: hidden;
+}
+
+body {
+    width: 100%;
+    max-width: 100%;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Ensure navbar stays within viewport */
+.navbar {
+    width: 100%;
+    left: 0;
+    right: 0;
+}
+
+/* Container adjustments */
+.container {
+    max-width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
     </style>
     
     <nav class="navbar navbar-expand-lg dynamic-navbar sticky-top" id="mainNavbar">
